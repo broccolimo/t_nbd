@@ -1,0 +1,151 @@
+'use strict';
+
+//实时数据
+
+/*
+{
+    "_id": "59b60b1aa3fbfb000e49a24e", 
+    "id": "36ffd5054357303432330143", 
+    "shearForce": {
+        "shearForce1": -695, 
+        "shearForce2": -1515, 
+        "weight": -721, 
+        "pressure1": 19324, 
+        "pressure2": 25460
+    }, 
+    "common": {
+        "faultCode": "0", 
+        "erroring": "0", 
+        "checking": "0", 
+        "running": "0", 
+        "cmdOpenDoor": "0", 
+        "doorOpened": "0", 
+        "doorSwitch": "0", 
+        "doorClosed": "1", 
+        "flatLayer": "1", 
+        "fireService": "0", 
+        "callRing": "0", 
+        "uping": "0", 
+        "downing": "0", 
+        "curFloor": "10", 
+        "totalRunTimes": 38199, 
+        "uptime": 2949900, 
+        "wireBendTimes": 0, 
+        "safeSwitch": "0", 
+        "heatSwitch": "0", 
+        "lockSwitch": "1", 
+        "bridgeSwitch": "0", 
+        "enginRoomSwitch": "0", 
+        "lectricSwitch": "1", 
+        "torqueSign": "0", 
+        "downBrakeSwitch": "0", 
+        "upBrakeSwitch": "0", 
+        "OpenFrontDoorBtn": "0", 
+        "CloseFrontDoorBtn": "0", 
+        "lightScreenSignal": "0", 
+        "safeBoardSwitch": "0", 
+        "fireSwitch": "0", 
+        "lockerSwitch": "0", 
+        "backDoorOpened": "0", 
+        "backDoorClosed": "1", 
+        "backOpenBtn": "0", 
+        "backCloseBtn": "0", 
+        "backEnabled": "0", 
+        "cmdBackDoorOpen": "0", 
+        "logicFailure": 0, 
+        "floorDisplayL": 10, 
+        "floorDisplayR": 2, 
+        "mainBoardType": 0, 
+        "upTimes": 9540, 
+        "totalUpTime": 9669900, 
+        "driverFault": 0, 
+        "logicLockStatus": 255, 
+        "sysRunMode": 22, 
+        "runPullUpTime": 0, 
+        "ARMCode": 0, 
+        "DSPCode": 0, 
+        "machineRatedCurrent": 340, 
+        "machineRatedTorque": 992, 
+        "brakeCurrent": 0, 
+        "weightStatus": 0
+    }
+}
+ */
+
+const mongoose = require('mongoose');
+
+//Schema
+const Schema = mongoose.Schema;
+
+const DT_Data = new Schema({
+  id: String,
+  shearForce: {
+    shearForce1: Number,
+    shearForce2: Number,
+    weight: Number,
+    pressure1: Number,
+    pressure2: Number
+  },
+  common: {
+    date:Date,
+    faultCode: String,
+    erroring: String,
+    checking: String,
+    running: String,
+    cmdOpenDoor: String,
+    doorOpened: String,
+    doorSwitch: String,
+    doorClosed: String,
+    flatLayer: String,
+    fireService: String,
+    callRing: String,
+    uping: String,
+    downing: String,
+    curFloor: String,
+    totalRunTimes: Number,
+    uptime: Number,
+    wireBendTimes: Number,
+    safeSwitch: String,
+    heatSwitch: String,
+    lockSwitch: String,
+    bridgeSwitch: String,
+    enginRoomSwitch: String,
+    lectricSwitch: String,
+    torqueSign: String,
+    downBrakeSwitch: String,
+    upBrakeSwitch: String,
+    OpenFrontDoorBtn: String,
+    CloseFrontDoorBtn: String,
+    lightScreenSignal: String,
+    safeBoardSwitch: String,
+    fireSwitch: String,
+    lockerSwitch: String,
+    backDoorOpened: String,
+    backDoorClosed: String,
+    backOpenBtn: String,
+    backCloseBtn: String,
+    backEnabled: String,
+    cmdBackDoorOpen: String,
+    logicFailure: Number,
+    floorDisplayL: Number,
+    floorDisplayR: Number,
+    mainBoardType: Number,
+    upTimes: Number,
+    totalUpTime: Number,
+    driverFault: Number,
+    logicLockStatus: Number,
+    sysRunMode: Number,
+    runPullUpTime: Number,
+    ARMCode: Number,
+    DSPCode: Number,
+    machineRatedCurrent: Number,
+    machineRatedTorque: Number,
+    brakeCurrent: Number,
+    weightStatus: Number,
+    balanceFactor:String,
+    noLoad:Number
+  }
+});
+
+//导出
+module.exports = mongoose.model('raw', DT_Data, 'raw');

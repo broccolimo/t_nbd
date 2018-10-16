@@ -1,0 +1,76 @@
+"use strict";
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const raw_v2 = new Schema({
+  id: String,
+  shearForce: {
+    shearForce1: Number,
+    shearForce2: Number,
+    weight: Number,
+    pressure1: Number,
+    pressure2: Number
+  },
+  common: {
+    date:Date,
+    faultCode: String,
+    erroring: String,
+    checking: String,
+    running: String,
+    cmdOpenDoor: String,
+    doorOpened: String,
+    doorSwitch: String,
+    doorClosed: String,
+    flatLayer: String,
+    fireService: String,
+    callRing: String,
+    uping: String,
+    downing: String,
+    curFloor: String,
+    totalRunTimes: Number,
+    uptime: Number,
+    wireBendTimes: Number,
+    safeSwitch: String,
+    heatSwitch: String,
+    lockSwitch: String,
+    bridgeSwitch: String,
+    enginRoomSwitch: String,
+    lectricSwitch: String,
+    torqueSign: String,
+    downBrakeSwitch: String,
+    upBrakeSwitch: String,
+    OpenFrontDoorBtn: String,
+    CloseFrontDoorBtn: String,
+    lightScreenSignal: String,
+    safeBoardSwitch: String,
+    fireSwitch: String,
+    lockerSwitch: String,
+    backDoorOpened: String,
+    backDoorClosed: String,
+    backOpenBtn: String,
+    backCloseBtn: String,
+    backEnabled: String,
+    cmdBackDoorOpen: String,
+    logicFailure: Number,
+    floorDisplayL: Number,
+    floorDisplayR: Number,
+    mainBoardType: Number,
+    upTimes: Number,
+    totalUpTime: Number,
+    driverFault: Number,
+    logicLockStatus: Number,
+    sysRunMode: Number,
+    runPullUpTime: Number,
+    ARMCode: Number,
+    DSPCode: Number,
+    machineRatedCurrent: Number,
+    machineRatedTorque: Number,
+    brakeCurrent: Number,
+    weightStatus: Number,
+    balanceFactor:String,
+    noLoad:Number
+  }
+});
+
+module.exports = mongoose.model('raw_v2', raw_v2, 'raw_v2');

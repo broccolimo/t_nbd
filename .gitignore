@@ -1,0 +1,6 @@
+mqtt_client/
+nginx_cfg/
+deploy.sh
+docker-compose.yml
+package-lock.json
+README.md
